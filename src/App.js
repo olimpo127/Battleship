@@ -32,11 +32,11 @@ const App = () => {
 
   //changes the message to display depending on who wins
   const winLoseMessage = () => {
-    if (redSquareCount === 10 && cpuRedSquareCount === 10) {
+    if (redSquareCount === 18 && cpuRedSquareCount === 18) {
       setMessage("It's a Tie!!");
-    } else if (redSquareCount === 10) {
+    } else if (redSquareCount === 18) {
       setMessage("You Win!!");
-    } else if (cpuRedSquareCount === 10) {
+    } else if (cpuRedSquareCount === 18) {
       setMessage("You Lose..");
     }
   };
@@ -44,7 +44,7 @@ const App = () => {
   //trigers the function to display the message of win
   useEffect(() => {
     winLoseMessage(); // Calls winLoseMessage when player wins (you win)
-    if (redSquareCount === 10) {
+    if (redSquareCount === 18) {
       setGameOver(true);
     }
   }, [redSquareCount]);
@@ -52,7 +52,7 @@ const App = () => {
   //trigers the function to display the message of lose
   useEffect(() => {
     winLoseMessage(); // Calls winLoseMessage when cpu wins (you lose)
-    if (cpuRedSquareCount === 10) {
+    if (cpuRedSquareCount === 18) {
       setGameOver(true);
     }
   }, [cpuRedSquareCount]);
@@ -62,14 +62,14 @@ const App = () => {
     const playerRandomSquares = [];
     const cpuRandomSquares = [];
 
-    while (playerRandomSquares.length < 10) {
+    while (playerRandomSquares.length < 18) {
       const randomSquare = Math.floor(Math.random() * 81);
       if (!playerRandomSquares.includes(randomSquare)) {
         playerRandomSquares.push(randomSquare);
       }
     }
 
-    while (cpuRandomSquares.length < 10) {
+    while (cpuRandomSquares.length < 18) {
       const randomSquareCpu = Math.floor(Math.random() * 81);
       if (!cpuRandomSquares.includes(randomSquareCpu)) {
         cpuRandomSquares.push(randomSquareCpu);
